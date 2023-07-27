@@ -1,0 +1,147 @@
+drop table employee cascade constraints;
+drop table customers cascade constraints;
+drop table tpackages cascade constraints;
+drop table acco cascade constraints;
+drop table travel cascade constraints;
+drop table booking cascade constraints;
+create table employee
+(
+ename varchar(100),
+eid number constraint pke primary key,
+ephno number(14,2)
+);
+create table customers
+(
+custid number constraint pkhe primary key,
+cname varchar(100),
+sex char,
+addr varchar(50),
+cphno number(14,2)
+);
+create table tpackages
+(
+pid number constraint pike primary key,
+place varchar(100),
+empid number constraint fkd references employee(eid),
+days number(3),
+charges number(8)
+);
+create table acco
+(
+atype number constraint ake primary key,
+aname varchar(10),
+aprice number(10)
+);
+create table travel
+(
+trid char(3) constraint pkte primary key,
+trmode varchar(10),
+pkid number constraint fkpk references tpackages(pid),
+trprice number(10)
+);
+create table booking
+(
+billno number constraint bno primary key,
+cid number constraint CIDR references customers(custid),
+trtype char(3) constraint fktr references travel(trid),
+acctype number constraint fkac references acco(atype)
+);
+commit;
+insert into customers values(1,'Anoop','m','Bijapur',7795438400);
+insert into customers values(2,'Shreyas','m','Hubballi',6565656568);
+insert into customers values(3,'Abdul','m','Hubballi',5454564785);
+insert into customers values(4,'Kiran','m','Yadgir',8880254580);
+insert into customers values(5,'Neeraj','m','Haveri',6987452280);
+insert into customers values(6,'Harsha','m','Haveri',456652280);
+insert into customers values(7,'Emma','f','Dharwad',8465651154);
+insert into customers values(8,'Annie Marie','f','Dandeli',8489944654);
+insert into customers values(9,'Sanjay','m','Dharwad',6565458745);
+insert into customers values(10,'Bharati','f','Hubballi',7454656551);
+insert into customers values(11,'Shankar','m','Musore',9454656551);
+insert into customers values(12,'Bhim','m','Hubballi',9054656551);
+insert into customers values(13,'kavita','f','Belagam',7454656551);
+insert into customers values(14,'swati','f','Benglore',7984986551);
+insert into customers values(15,'Elly','f','Hubballi',7454006551);
+insert into customers values(16,'savita','f','Bagalkot',7412656551);
+insert into employee values('Anusha',1,5874556464);
+insert into employee values('Rahul',2,6574558764);
+insert into employee values('Manoj',3,8745558764);
+insert into employee values('Shrusti',4,7894528764);
+insert into employee values('Nitish',5,4785658764);
+insert into employee values('Amar',6,7413568764);
+insert into employee values('Rakesh',7,6654785764);
+insert into employee values('Vinayak',8,5471565764);
+insert into employee values('Nikita',9,99845568764);
+insert into employee values('Bhaga',10,8745668764);
+insert into employee values('Jordan',11,9456668764);
+insert into employee values('Jayesh',12,9800768764);
+insert into employee values('Roshani',13,7855668764);
+insert into employee values('Tim',14,8745668764);
+insert into employee values('Tom',15,9845668764);
+insert into employee values('Tej',16,9085668764);
+insert into tpackages values(10,'South Karnataka',5,8,4500);
+insert into tpackages values(20,'North Karnataka',3,6,3500);
+insert into tpackages values(30,'Coastal Karnataka',2,3,1500);
+insert into tpackages values(40,'Kerala',1,10,8000);
+insert into tpackages values(50,'Tamil Nadu',6,12,9500);
+insert into tpackages values(60,'Goa',4,4,4000);
+insert into tpackages values(70,'Maharastra',10,5,5000);
+insert into tpackages values(80,'NorthEast India',11,14,15000);
+insert into tpackages values(90,'North India',7,12,12000);
+insert into tpackages values(100,'Leh-Ladakh',12,15,14000);
+insert into acco values(11,'Basic',500);
+insert into acco values(22,'Deluxe',1500);
+insert into acco values(33,'Luxury',3000);
+insert into travel values('A1','Bus',10,5000);
+insert into travel values('A2','Car',10,10000);
+insert into travel values('A3','Train',10,2000);
+insert into travel values('B1','Bus',20,4000);
+insert into travel values('B2','Car',20,8000);
+insert into travel values('B3','Train',20,2000);
+insert into travel values('C1','Bus',30,3000);
+insert into travel values('C2','Car',30,6000);
+insert into travel values('C3','Train',30,1500);
+insert into travel values('D1','Bus',40,10000);
+insert into travel values('D2','Car',40,18000);
+insert into travel values('D3','Train',40,5000);
+insert into travel values('E1','Bus',50,12000);
+insert into travel values('E2','Car',50,20000);
+insert into travel values('E3','Train',50,6000);
+insert into travel values('F1','Bus',60,2500);
+insert into travel values('F2','Car',60,6000);
+insert into travel values('F3','Train',60,1200);
+insert into travel values('G1','Bus',70,6000);
+insert into travel values('G2','Car',70,4000);
+insert into travel values('G3','Train',70,1500);
+insert into travel values('H1','Bus',80,30000);
+insert into travel values('H2','Car',80,20000);
+insert into travel values('H3','Train',80,15000);
+insert into travel values('I1','Bus',90,25000);
+insert into travel values('I2','Car',90,18000);
+insert into travel values('I3','Train',90,11000);
+insert into travel values('J1','Bus',100,19000);
+insert into travel values('J2','Car',100,28000);
+insert into travel values('J3','Train',100,11500);
+insert into booking values(201,1,'F1',11);
+insert into booking values(202,2,'B3',22);
+insert into booking values(203,2,'E2',11);
+insert into booking values(204,3,'C2',33);
+insert into booking values(205,4,'D3',22);
+insert into booking values(206,1,'B1',11);
+insert into booking values(207,5,'A3',33);
+insert into booking values(208,2,'A1',11);
+insert into booking values(209,6,'E2',33);
+insert into booking values(210,7,'F2',11);
+insert into booking values(211,7,'B1',33);
+insert into booking values(212,8,'C3',22);
+insert into booking values(213,9,'B3',22);
+insert into booking values(214,10,'A3',11);
+insert into booking values(215,7,'C3',22);
+insert into booking values(216,4,'A3',11);
+insert into booking values(217,6,'G2',22);
+insert into booking values(218,6,'C3',22);
+insert into booking values(219,5,'B2',33);
+insert into booking values(220,8,'C1',11);
+insert into booking values(225,2,'D3',33);
+insert into booking values(227,2,'I3',22);
+commit;

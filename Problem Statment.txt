@@ -1,0 +1,10 @@
+A  Private Firm Runs Travel Agency in Hubballi .
+A Secured & Efficient Database has to be Created and Maintained to Manage the Agency.
+-Travel Agency Offers Multiple Travel Packages for the Customers.
+-No of days,Service Charges Differs from One Package to Another.
+-Agency Hires One Employee to Handle Each Package.
+-Agency Also Wants to Store Specific Data of Customers by Assigning them Unique ID.
+-Each Package includes 3 Modes of Transport,Customers can choose based on their convenience.
+-Agency also Gives 3 Accomodation Options to Customers Based on their Budget & Accomodation price will be same across All Packages.
+-Every Customer Can book Single/Multiple Packages  with their Desired Modifications in Travel Modes & Accomodation .
+
